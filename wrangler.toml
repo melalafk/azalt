@@ -1,0 +1,20 @@
+name = "azalt-app"
+main = "src/worker.js"
+compatibility_date = "2025-09-01"
+
+rules = [
+  { type = "Text", globs = ["**/*.html"], fallthrough = true },
+  { type = "Data", globs = ["**/*.jpg"], fallthrough = true },
+]
+
+[[durable_objects.bindings]]
+name = "AZALT_DO"
+class_name = "AzaltDO"
+
+[[kv_namespaces]]
+binding = "AZALT_KV"
+id = "ef69bcc6f25843638619bf8ce0864721"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["AzaltDO"]
